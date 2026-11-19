@@ -4,10 +4,11 @@ Atelier de conception 3D paramétrique dans le navigateur, construit pour le bur
 
 ## Utiliser l’application
 
-- `index.html` ouvre l’atelier spatial de manipulation.
-- `cad.html` ouvre le Part Studio à géométrie exacte B-Rep.
-- La VR nécessite le Meta Quest Browser et HTTPS. Le bouton d’accès VR explique quand le navigateur courant n’est pas compatible.
-- Pour développer : `npm install`, puis `npm run dev`. `npm run build` construit et prépare les fichiers du site GitHub Pages à la racine.
+- Ouvrir [le site publié](https://draconien17-lang.github.io/VR-workshop-/) pour l’atelier spatial.
+- Ouvrir [le Part Studio](https://draconien17-lang.github.io/VR-workshop-/cad.html) pour la modélisation B-Rep.
+- Le site doit être ouvert depuis son adresse HTTPS ou depuis un serveur local. Ne pas ouvrir les fichiers HTML directement avec `file://` : les navigateurs bloquent le chargement du noyau 3D. Si cela arrive, la page locale affiche un lien vers la version en ligne.
+- La VR nécessite le navigateur Meta Quest et HTTPS. Le bouton VR explique quand le navigateur courant ne prend pas en charge WebXR.
+- Pour développer : `npm install`, puis `npm run dev`. `npm run build` prépare les fichiers GitHub Pages à la racine.
 
 ## Part Studio
 
