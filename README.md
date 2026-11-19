@@ -1,20 +1,24 @@
 # VR Workshop
 
-Atelier de modélisation 3D dans le navigateur, avec une interface adaptée au bureau, au mobile et au Meta Quest 3.
+Atelier de conception 3D paramétrique dans le navigateur, construit pour le bureau, le mobile et une utilisation immersive avec Meta Quest 3.
 
-## Démarrer
+## Utiliser l’application
 
-- Ouvrir `index.html` pour l’atelier de manipulation 3D et ses commandes VR/MR.
-- Ouvrir `cad.html` pour le Part Studio à modélisation B-Rep.
-- Servir le site en HTTPS pour activer les fonctions WebXR; GitHub Pages fournit HTTPS.
-- Pour travailler sur le Part Studio : `npm install`, puis `npm run dev`. `npm run build` prépare aussi les fichiers nécessaires au déploiement Pages à la racine.
+- `index.html` ouvre l’atelier spatial de manipulation.
+- `cad.html` ouvre le Part Studio à géométrie exacte B-Rep.
+- La VR nécessite le Meta Quest Browser et HTTPS. Le bouton d’accès VR explique quand le navigateur courant n’est pas compatible.
+- Pour développer : `npm install`, puis `npm run dev`. `npm run build` construit et prépare les fichiers du site GitHub Pages à la racine.
 
-## Part Studio disponible
+## Part Studio
 
-Le Part Studio comprend les esquisses rectangle, cercle, ellipse, polygone et rectangle arrondi; les primitives boîte, cylindre et sphère; extrusion et révolution; congé, chanfrein et opérations booléennes union/soustraction/intersection. Les opérations sont enregistrées dans un historique paramétrique local. L’application permet annuler/rétablir, modifier les dimensions, sauvegarder/réouvrir un projet JSON et exporter en STEP ou STL.
+Le Part Studio permet de dessiner des rectangles, cercles, ellipses, polygones et rectangles arrondis, puis de créer des blocs, cylindres et sphères. Il propose extrusion, révolution, congé, chanfrein, union, soustraction, intersection, miroirs, translation, rotation et changement d’échelle par axe. Les faces peuvent être poussées ou creusées avec une distance signée. La sélection d’arête applique un congé ou un chanfrein ciblé. Les sommets visibles peuvent servir de poignées pour déplacer la pièce.
 
-Le noyau OpenCascade (via brepjs/occt-wasm) construit des solides B-Rep. Le projet reste un prototype en évolution et ne prétend pas encore couvrir l’ensemble des fonctions Onshape : contraintes d’esquisse et solveur, balayage/loft, assemblages et mates, tôlerie, dessins, collaboration/versionnage et autres modules avancés restent à construire.
+Les opérations sont rejouées dans un historique paramétrique local. L’application prend en charge annuler/rétablir, la sauvegarde locale, les fichiers projet JSON, les exports STEP et STL. Le noyau OpenCascade est exécuté dans un Worker afin de garder l’interface réactive.
 
-## Quest 3 et WebXR
+## Meta Quest 3
 
-La page d’atelier gère l’entrée VR/MR selon les capacités de l’appareil et du navigateur. Les fonctions MR/passthrough dépendent des permissions et des API prises en charge par le navigateur Quest. Les gestes de manipulation sont expérimentaux. Le Part Studio est actuellement une interface 3D bureau/mobile; les commandes directes par mains/contrôleurs Quest et un espace de travail immersif restent à intégrer.
+Le mode VR demande une session WebXR immersive, avec suivi des mains lorsqu’il est proposé par le navigateur et les contrôleurs en solution de secours. La gâchette ou le pincement saisit l’objet; deux mains règlent son échelle. Le bouton grip des contrôleurs fait défiler les modes Objet, Face, Arête et Sommet. En mode Face, maintenir la saisie et tirer le long de la normale ajoute ou retire de la matière. Les déplacements et mises à l’échelle sont conservés comme opérations dans l’historique.
+
+## État du projet
+
+VR Workshop est un prototype CAO actif, pas encore un remplacement fonctionnel complet d’Onshape. Le solveur de contraintes d’esquisse, les esquisses posées directement sur les faces, sweep/loft avancés, les arbres de conception multi-pièces, assemblages et mates, tôlerie, dessins, collaboration, gestion de versions et modules d’ingénierie restent à développer. Les fonctions Quest doivent aussi être validées sur un casque physique avant de pouvoir garantir le comportement sur chaque version de navigateur.
